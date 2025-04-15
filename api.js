@@ -1,6 +1,6 @@
 import pkg from 'pg';
 import express from 'express';
-const serverless=require('serverless-http');
+
 
 const { Pool } = pkg;
 
@@ -75,9 +75,8 @@ app.delete('/api/tasks/:id', async (req, res) => {
 });
 
 // // Start the server
-// const PORT = process.env.PORT || 3000;
-// app.listen(PORT, () => {
-//   console.log(`Backend running on http://localhost:${PORT}`);
-// });
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Backend running on http://localhost:${PORT}`);
+});
 
-module.exports.handler = serverless(app);
