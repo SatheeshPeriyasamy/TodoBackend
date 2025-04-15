@@ -11,6 +11,7 @@
     "start": "node api.js"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^5.1.0",
     "pg": "^8.14.1",
     "serverless-http": "^3.2.0"

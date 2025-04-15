@@ -1,6 +1,6 @@
 import pkg from 'pg';
 import express from 'express';
-
+import cors from 'cors'; // Import cors
 
 const { Pool } = pkg;
 
@@ -16,6 +16,7 @@ const pool = new Pool({
 });
 
 const app = express();
+app.use(cors()); // Enable CORS
 app.use(express.json());
 
 // Fetch all tasks
@@ -74,9 +75,8 @@ app.delete('/api/tasks/:id', async (req, res) => {
   }
 });
 
-// // Start the server
+// Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Backend running on http://localhost:${PORT}`);
 });
-
